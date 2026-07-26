@@ -43,7 +43,7 @@ if uploaded_file is not None:
             
             if prediction[0] > 0.5:
                 st.error('🦠 Yellow Leaf Curl Virus Detected')
-                st.write(f'Confidence: {prediction[0]*100:.2f}%')
+                st.write(f'Confidence: {float(prediction[0]) * 100:.2f}%')
             else:
                 st.success('✅ Healthy Tomato')
                 st.write(f'Confidence: {(1-prediction[0])*100:.2f}%')
