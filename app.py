@@ -3,12 +3,18 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 import numpy as np
 
+
+
+
 # Page configuration
 st.set_page_config(page_title="Tomato Disease Classifier", page_icon="🍅")
 
 # Cache model so it doesn't reload
 @st.cache_resource
 def load_model_cached():
+    # Load model from GitHub raw content
+    url = "https://github.com/mercy456-coll/Tomato_Disease_CNN_Classifier/raw/main/tomato_disease_model.keras"
+    urllib.request.urlretrieve(url, "tomato_disease_model.keras")
     return load_model('tomato_disease_model.keras')
 
 # Load model
