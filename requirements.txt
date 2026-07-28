@@ -1,5 +1,5 @@
 tensorflow
-stream it
+streamlit
 numpy
 pillow
 scikit-learn
