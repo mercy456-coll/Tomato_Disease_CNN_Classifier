@@ -7,7 +7,7 @@ st.set_page_config(page_title="Tomato Disease Classifier", page_icon="🍅")
 
 @st.cache_resource
 def load_model_cached():
-    return load_model('tomato_disease_model.keras')
+    return load_model('tomato_disease_model.h5')
 
 model = load_model_cached()
 
