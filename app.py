@@ -21,7 +21,7 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded Image', use_container_width=True)
     
     if st.button('🔍 Predict'):
-    with st.spinner('Analyzing...'):
+      with st.spinner('Analyzing...'):
         # Preprocess image
         img = image.convert('RGB')
         img = img.resize((256, 256))
