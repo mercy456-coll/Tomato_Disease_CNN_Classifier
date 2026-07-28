@@ -21,21 +21,25 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded Image', use_container_width=True)
     
     if st.button('🔍 Predict'):
-        with st.spinner('Analyzing...'):
-            img = image.convert('RGB')
-            img = img.resize((256, 256))
-            img_array = np.array(img, dtype=np.float32) / 255.0
-            img_array = np.expand_dims(img_array, axis=0)
-            
-            prediction = model.predict(img_array)
-            
-            st.success('✅ Prediction Complete!')
-            
-            if prediction[0] > 0.5:
-                 st.error('🦠 Yellow Leaf Curl Virus Detected')
-                 confidence = float(prediction[0]) * 100
-                 st.write(f'Confidence: {confidence:.2f}%')
-            else:
-                 st.success('✅ Healthy Tomato')
-                 confidence = (1.0 - float(prediction[0])) * 100
-                 st.write(f'Confidence: {confidence:.2f}%')
+    with st.spinner('Analyzing...'):
+        # Preprocess image
+        img = image.convert('RGB')
+        img = img.resize((256, 256))
+        img_array = np.array(img, dtype=np.float32) / 255.0
+        img_array = np.expand_dims(img_array, axis=0)
+        
+        # Make prediction
+        prediction = model.predict(img_array)
+        pred_value = prediction[0][0]
+        
+        # Display result
+        st.success('✅ Prediction Complete!')
+        
+        if pred_value > 0.5:
+            st.error('🦠 Yellow Leaf Curl Virus Detected')
+            confidence = pred_value * 100
+        else:
+            st.success('✅ Healthy Tomato')
+            confidence = (1.0 - pred_value) * 100
+        
+        st.write(f'Confidence: {confidence:.2f}%')
