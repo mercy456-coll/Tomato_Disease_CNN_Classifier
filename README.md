@@ -127,13 +127,14 @@ Tomato_Disease_CNN_V2/
 ├── requirements.txt            # Python package dependencies
 ├── README.md                   # This file
 ├── Local_Deployment_Screenshot # Evidence of working deployment
-└── Project Report
+└── Tomato_Disease_Classifier_Report.docx
 ```
 
 ## Dependencies
 
 ```
-tensorflow
+tensorflow>=2.16.1
+keras>=3.0.0
 streamlit
 numpy
 pillow
@@ -202,7 +203,6 @@ pip install -r requirements.txt
 - **Institution:** University of Uyo
 - **Department:** Computer Engineering
 - **Group:** CO8 (Computer Engineering Group 8)
-- **Submission:** July 31, 2026
 
 ## Project Status
 
